@@ -1,0 +1,16 @@
+Q1:
+venue_description, food_code and food_description ARE NOT ATOMIC 
+dinner_date ATTRIBUTE DOMAIN CHANGED 
+THERE IS NO KEYS.
+
+Q2:
+member, food, venue, and dinner CAN BE EXTRACTED 
+
+
+Q3:
+CREATE TABLE member (member_id pk, member_name, member_address)
+CREATE TABLE dinner (dinner_id PK, dinner_date )
+CREATE TABLE venue (venue_code PK, venue_description)
+CREATE TABLE food (food_code PK, food_description)
+CREATE TABLE dinner_food_injection (dinner_id INT fk REFERENCES dinner(dinner_id),food_code  INT fk REFERENCES food(food_code))
+CREATE TABLE member_dinner_venue (member_id INT FK REFERENCES member(member_id),dinner_id INT fk REFERENCES dinner(dinner_id),venue_code INT FK REFERENCES venue(venue_code))
